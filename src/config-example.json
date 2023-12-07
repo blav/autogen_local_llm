@@ -1,0 +1,69 @@
+{
+    "base_path": "/base/path/to/models",
+    "common": {
+        "n_threads": 16,
+        "n_gpu_layers": 1,
+        "silence_warnings": true
+    },
+    "models": {
+        "yarn-mistral-7B-64k-instruct-alpaca-cleaned": { 
+            "path": "FlexingD/yarn-mistral-7B-64k-instruct-alpaca-cleaned-GGUF/ggml-model-q6_k.gguf",
+            "chat_format": "alpaca",
+            "n_ctx": 64000,
+            "n_batch": 64
+        }, 
+        "Yarn-Mistral-7B-128k": { 
+            "path": "TheBloke/Yarn-Mistral-7B-128k-GGUF/yarn-mistral-7b-128k.Q5_K_M.gguf",
+            "chat_format": "llama-2",
+            "n_ctx": 128000,
+            "n_batch": 32
+        }, 
+        "Yarn-Mistral-7B-64k": { 
+            "path": "TheBloke/Yarn-Mistral-7B-64k-GGUF/yarn-mistral-7b-64k.Q6_K.gguf",
+            "chat_format": "llama-2",
+            "n_ctx": 64000,
+            "n_batch": 64
+        }, 
+        "Llama-2-7B-32K-Instruct": { 
+            "path": "TheBloke/Llama-2-7B-32K-Instruct-GGUF/llama-2-7b-32k-instruct.Q5_K_M.gguf",
+            "chat_format": "llama-2",
+            "n_ctx": 32000,
+            "n_batch": 128
+        },
+        "Mistral-7B-Instruct-v0.1": {
+            "path": "TheBloke/Mistral-7B-Instruct-v0.1-GGUF/mistral-7b-instruct-v0.1.Q5_K_M.gguf",
+            "chat_format": "mistrallite",
+            "n_ctx": 8000
+        },
+        "OpenHermes-2.5-Mistral-7B": {
+            "path": "TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/openhermes-2.5-mistral-7b.Q6_K.gguf",
+            "chat_format": "chatml",
+            "n_ctx": 8000
+        },
+        "dolphin-2.1-mistral-7B": {
+            "path": "TheBloke/dolphin-2.1-mistral-7B-GGUF/dolphin-2.1-mistral-7b.Q6_K.gguf",
+            "chat_format": "chatml",
+            "n_ctx": 8000
+        },
+        "Mistral-7B-OpenOrca": {
+            "path": "TheBloke/Mistral-7B-OpenOrca-GGUF/mistral-7b-openorca.Q6_K.gguf",
+            "chat_format": "chatml",
+            "n_ctx": 8000
+        },
+        "Starling-LM-7B-alpha": {
+            "path": "TheBloke/Starling-LM-7B-alpha-GGUF/starling-lm-7b-alpha.Q5_K_M.gguf",
+            "chat_format": "openchat",
+            "n_ctx": 8000
+        },
+        "OpenHermes-2.5-neural-chat-7B-v3-1-7B": {
+            "path": "TheBloke/OpenHermes-2.5-neural-chat-7B-v3-1-7B-GGUF/openhermes-2.5-neural-chat-7b-v3-1-7b.Q6_K.gguf",
+            "chat_format": "chatml",
+            "n_ctx": 8000
+        },
+        "functionary-7b-v1": {
+            "path": "abetlen/functionary-7b-v1-GGUF/functionary-7b-v1.Q4_K_S.gguf",
+            "chat_format": "functionary",
+            "n_ctx": 8000
+        }
+    }
+}
