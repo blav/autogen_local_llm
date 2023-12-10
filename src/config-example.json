@@ -64,6 +64,11 @@
             "path": "abetlen/functionary-7b-v1-GGUF/functionary-7b-v1.Q4_K_S.gguf",
             "chat_format": "functionary",
             "n_ctx": 8000
+        },
+        "orca-2-13b": {
+            "path": "TheBloke/Orca-2-13B-GGUF/orca-2-13b.Q4_K_M.gguf",
+            "chat_format": "chatml",
+            "n_ctx": 4096
         }
     }
 }

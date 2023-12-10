@@ -16,5 +16,6 @@ def get_config(model_name):
         "silence_warnings": "silence_warnings" in commons and commons["silence_warnings"] or True,
         "n_ctx": model["n_ctx"],
         "n_batch": "n_batch" in model and model["n_batch"] or 512,
-        "chat_format": chat_format,          
+        "chat_format": chat_format, 
+        "verbose": True,
     }

@@ -164,4 +164,7 @@ cython_debug/
 config.json
 
 # mac
+.DS_Store.vscode/
 .DS_Store
+logs
+.vscode/*
