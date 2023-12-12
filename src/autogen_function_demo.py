@@ -1,11 +1,9 @@
 from model_config import get_config
 from llama_cpp import Llama
-from autogen.agentchat import AssistantAgent, UserProxyAgent
 from openai_api import start_openai_api_thread
-
-
+from autogen.agentchat import AssistantAgent, UserProxyAgent
 if __name__ == "__main__":
-    config = get_config("functionary-7b-v1")
+    config = get_config("Mistral-7B-Instruct-v0.1-function-calling-v2")
     
     start_openai_api_thread(Llama(**config))
 
@@ -71,7 +69,7 @@ if __name__ == "__main__":
     user_proxy = UserProxyAgent(
         name="human",
         is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("TERMINATE"),
-        human_input_mode="TERMINATE",
+        human_input_mode="ALWAYS",
         max_consecutive_auto_reply=8,
         code_execution_config={"work_dir": "coding"},
     )

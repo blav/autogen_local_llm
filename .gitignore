@@ -168,3 +168,4 @@ config.json
 .DS_Store
 logs
 .vscode/*
+tmp/

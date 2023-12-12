@@ -3,6 +3,10 @@ from typing import List, Optional, Literal, Dict, Union
 from fastapi import FastAPI
 from pydantic import BaseModel
 from llama_cpp import Llama
+from threading import Event
+from trelis import register_trelis_chat_completion_handler
+from contextlib import asynccontextmanager
+
 
 import threading
 import uvicorn
@@ -47,7 +51,16 @@ class _EmbeddingsRequest(BaseModel):
     encoding_format: Optional[str] = None
 
 def start_openai_api_thread(llm: Llama, host: str = "localhost", port: int = 8000):
-    app = FastAPI()
+    register_trelis_chat_completion_handler()
+
+    server_ready = Event()
+
+    @asynccontextmanager
+    async def lifespan(app: FastAPI):
+        server_ready.set()
+        yield  
+
+    app = FastAPI(lifespan=lifespan)
 
     @app.post("/v1/chat/completions")
     async def completions(request: _ChatCompletionsRequest):
@@ -72,12 +85,14 @@ def start_openai_api_thread(llm: Llama, host: str = "localhost", port: int = 800
         )
 
     thread = threading.Thread(
-        target=lambda: uvicorn.run(app, host=host, port=port),
         daemon=True, 
+        target=lambda: uvicorn.run(
+            app, 
+            host=host, 
+            port=port, 
+        ),
     )
     
     thread.start()
-
-    # wait for the thread to be ready
-    sleep(1)
+    server_ready.wait()
     return thread
